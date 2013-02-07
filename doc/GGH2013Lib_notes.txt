@@ -1,0 +1,4 @@
+
+[x] add CLog, CTexture and GGH2013LibConfig.h
+ [x] commit
+[ ] 

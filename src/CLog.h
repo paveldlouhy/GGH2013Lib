@@ -11,11 +11,14 @@ namespace ggh13lib { namespace dbg {
     
     
     class CLog {
-        
+    public:
         CLog(char *msg);
         ~CLog();
         
         void Log(const char *fmt, ...);
+    
+    private:
+        
     };
     
     
