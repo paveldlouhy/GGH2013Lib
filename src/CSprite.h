@@ -17,13 +17,25 @@ namespace ggh13lib { namespace spr {
         ~CSprite();
         
         void SetPos(float parX, float parY, float parZ);
+        void SetSize(float parDX, float parDY);
         
         void SetX(float parX);
         void SetY(float parY);
         void SetZ(float parZ);
+        void SetDX(float parDX);
+        void SetDY(float parDY);
+        void SetTextureID(int parTextureID);
+        void SetColor(float parR, float parG, float parB, float parA);
         float GetX();
         float GetY();
         float GetZ();
+        float GetDX();
+        float GetDY();
+        int GetTextureID();
+        float GetRed();
+        float GetGreen();
+        float GetBlue();
+        float GetAlpha();
         
         int GetSlot();
         
@@ -32,6 +44,9 @@ namespace ggh13lib { namespace spr {
         int slot;
         
         float x, y, z;
+        float dx, dy;
+        int textureID;
+        float r, g, b, a;
     };
     
     
