@@ -16,6 +16,8 @@ namespace ggh13lib { namespace spr {
         CSprite(CSpriteManager *parOwner, int parSlot);
         ~CSprite();
         
+        void Clear();
+        
         void SetPos(float parX, float parY, float parZ);
         void SetSize(float parDX, float parDY);
         
@@ -26,6 +28,8 @@ namespace ggh13lib { namespace spr {
         void SetDY(float parDY);
         void SetTextureID(int parTextureID);
         void SetColor(float parR, float parG, float parB, float parA);
+        void SetEnabled(bool value);
+        void SetRotation(float r);
         float GetX();
         float GetY();
         float GetZ();
@@ -36,6 +40,8 @@ namespace ggh13lib { namespace spr {
         float GetGreen();
         float GetBlue();
         float GetAlpha();
+        bool IsEnabled();
+        float GetRotation();
         
         int GetSlot();
         
@@ -47,6 +53,8 @@ namespace ggh13lib { namespace spr {
         float dx, dy;
         int textureID;
         float r, g, b, a;
+        bool enabled;
+        float rotation;
     };
     
     

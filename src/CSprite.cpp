@@ -17,7 +17,8 @@ namespace ggh13lib { namespace spr {
 
 
     CSprite::CSprite(CSpriteManager *parOwner, int parSlot) : owner(parOwner), slot(parSlot),
-        x(0.), y(0.), z(0.), dx(16.), dy(16.), textureID(0), r(1.), g(1.), b(1.), a(1.)
+        x(0.), y(0.), z(0.), dx(16.), dy(16.), textureID(0), r(1.), g(1.), b(1.), a(1.), enabled(false),
+        rotation(0.)
     {
         
     }
@@ -25,6 +26,22 @@ namespace ggh13lib { namespace spr {
     CSprite::~CSprite()
     {
         
+    }
+    
+    void CSprite::Clear()
+    {
+        x = 0.;
+        y = 0.;
+        z = 0.;
+        dx = 16.;
+        dy = 16.;
+        textureID = 0;
+        r = 1.;
+        g = 1.;
+        b = 1.;
+        a = 1.;
+        enabled = false;
+        rotation = 0.;
     }
     
     int CSprite::GetSlot()
@@ -83,6 +100,16 @@ namespace ggh13lib { namespace spr {
         a = parA;
     }
     
+    void CSprite::SetEnabled(bool value)
+    {
+        enabled = value;
+    }
+    
+    void CSprite::SetRotation(float r)
+    {
+        rotation = r;
+    }
+    
     float CSprite::GetX()
     {
         return x;
@@ -131,6 +158,16 @@ namespace ggh13lib { namespace spr {
     float CSprite::GetAlpha()
     {
         return a;
+    }
+    
+    bool CSprite::IsEnabled()
+    {
+        return enabled;
+    }
+    
+    float CSprite::GetRotation()
+    {
+        return rotation;
     }
 
 

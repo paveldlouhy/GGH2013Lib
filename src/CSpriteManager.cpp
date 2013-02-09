@@ -14,6 +14,7 @@
 #include "CSprite.h"
 
 
+#include "CLog.h"
 #include <assert.h>
 
 
@@ -35,9 +36,13 @@ namespace ggh13lib { namespace spr {
     
     CSprite *CSpriteManager::CreateSprite(int slot)
     {
-        assert(slot > 0);
+        assert(slot >= 0);
         assert(slot <= NUMSPRITESLOTS);
-        spriteCount = slot;
+        if (slot + 1 > spriteCount) {
+            spriteCount = slot + 1;
+            dbg::CLog log(0);
+            log.Log((char *)"new spriteCount: %d\n", spriteCount);
+        }
         spriteSlots[slot] = new CSprite(this, slot);
         return spriteSlots[slot];
     }
@@ -46,7 +51,7 @@ namespace ggh13lib { namespace spr {
     {
         if (spr) {
             int slot = spr->GetSlot();
-            assert(slot > 0);
+            assert(slot >= 0);
             assert(slot <= NUMSPRITESLOTS);
             assert(spriteSlots[slot]);
             delete spriteSlots[slot];
@@ -60,7 +65,7 @@ namespace ggh13lib { namespace spr {
     
     CSprite *CSpriteManager::GetSprite(int slot)
     {
-        assert(slot > 0);
+        assert(slot >= 0);
         assert(slot <= NUMSPRITESLOTS);
         return spriteSlots[slot];
     }
