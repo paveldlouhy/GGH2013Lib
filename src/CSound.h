@@ -26,7 +26,11 @@ namespace ggh13lib { namespace oal {
         ~CSound();
         
         void Play();
+        void Stop();
         void SetLooping(bool looping);
+        void SetVolume(float parVolume);
+        bool IsPlaying();
+        float GetVolume();
         
     private://methods
         void InitBuffer(CFURLRef fileURL);
@@ -41,6 +45,7 @@ namespace ggh13lib { namespace oal {
         ALuint source;
         bool isPlaying;
         bool isLooping;
+        float volume;
         
         MyPoint sourcePos;
     };

@@ -39,6 +39,7 @@ namespace ggh13lib { namespace oal {
         source = 0;
         isPlaying = false;
         isLooping = false;
+        volume = 1.0f;
         sourcePos.x = 0.;
         sourcePos.y = -70.;
         
@@ -69,6 +70,22 @@ namespace ggh13lib { namespace oal {
         }
     }
     
+    void CSound::Stop()
+    {
+        ALenum error;
+        
+        dbg::CLog log((char *)"Stop!\n");
+        // Begin playing our source file
+        alSourceStop(source);
+        if((error = alGetError()) != AL_NO_ERROR) {
+            dbg::CLog log(0);
+            log.Log((char *)"error stopping source: %x\n", error);
+        } else {
+            // Mark our state as playing (the view looks at this)
+            isPlaying = false;
+        }
+    }
+    
     void CSound::SetLooping(bool looping)
     {
         ALenum error;
@@ -86,6 +103,29 @@ namespace ggh13lib { namespace oal {
             dbg::CLog log(0);
             log.Log((char *)"error looping on source: %x\n", error);
         }
+    }
+    
+    void CSound::SetVolume(float parVolume)
+    {
+        ALenum error;
+
+        alSourcef(source, AL_GAIN, parVolume);
+        volume = parVolume;
+        
+        if((error = alGetError()) != AL_NO_ERROR) {
+            dbg::CLog log(0);
+            log.Log((char *)"error set volume on source: %x\n", error);
+        }
+    }
+    
+    bool CSound::IsPlaying()
+    {
+        return isPlaying;
+    }
+    
+    float CSound::GetVolume()
+    {
+        return volume;
     }
     
     void CSound::InitBuffer(CFURLRef fileURL)
