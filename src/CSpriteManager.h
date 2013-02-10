@@ -7,7 +7,7 @@
 //
 
 
-#define NUMSPRITESLOTS  4096
+#define NUMSPRITESLOTS  8192
 
 
 namespace ggh13lib { namespace spr {
