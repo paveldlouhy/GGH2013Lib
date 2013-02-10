@@ -13,8 +13,8 @@
 #include "SInitData.h"
 
 
-#define NUMBUFFERS  2
-#define NUMSOURCES  2
+#define NUMBUFFERS  8
+#define NUMSOURCES  8
 
 
 namespace ggh13lib { namespace oal {
