@@ -30,6 +30,7 @@ namespace ggh13lib { namespace spr {
         void SetColor(float parR, float parG, float parB, float parA);
         void SetEnabled(bool value);
         void SetRotation(float r);
+        void SetSphereFlag();
         float GetX();
         float GetY();
         float GetZ();
@@ -42,6 +43,7 @@ namespace ggh13lib { namespace spr {
         float GetAlpha();
         bool IsEnabled();
         float GetRotation();
+        bool IsSphere();
         
         int GetSlot();
         
@@ -55,6 +57,7 @@ namespace ggh13lib { namespace spr {
         float r, g, b, a;
         bool enabled;
         float rotation;
+        bool sphere;
     };
     
     
